@@ -15,8 +15,9 @@ function App() {
 
   const [asyncData, setAsyncData] = useState(null);
   const [resp, setData2] = useState(null);
-  useEffect(() => {
 
+
+  useEffect(() => {
     const fetchData = () => {
       fetch('https://api.coindesk.com/v1/bpi/currentprice.json')
         .then(async response => {
@@ -26,17 +27,18 @@ function App() {
             setAsyncData("something");
           }, 5000);
           !asyncData ? null : setData2(respJson)
+          // setData2(respJson)
         }
         )
     }
+
     //декларированная внутри
-    fetchData()
+    fetchData();
     //Внешняя функция
     fGetDataFromApi()
       .catch(console.error);
     return () => { };
-  }, [resp, data, asyncData]);
-
+  }, [asyncData]);
 
   return (
 
