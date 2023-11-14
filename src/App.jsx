@@ -1,20 +1,17 @@
 import { useState, useEffect } from 'react'
 import './App.css'
 import { DropDown } from './components/DropDown/index';
-import {HashRouter} from 'react-router-dom';
 
 function App() {
   //const [count, setCount] = useState(0)
 
   const [data, setData] = useState(null);
 
-  const NewApp = (props) => {
-    return  <HashRouter basename={process.env.PUBLIC_URL}>
-        <Provider store={store}>
-            <AppContainer />
-        </Provider>
-      </HashRouter>
-   }
+
+   app.get('*', function (req, res) {
+    const index = path.join(__dirname, 'build', 'index.html');
+    res.sendFile(index);
+  });
 
   async function fGetDataFromApi() {
     let response = await Promise.resolve(fetch('https://reqres.in/api/unknown'));

@@ -10,7 +10,9 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start": "node index.js",
+  "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "dependencies": {
     "react": "^18.2.0",
