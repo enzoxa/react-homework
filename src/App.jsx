@@ -7,12 +7,6 @@ function App() {
 
   const [data, setData] = useState(null);
 
-
-   app.get('*', function (req, res) {
-    const index = path.join(__dirname, 'build', 'index.html');
-    res.sendFile(index);
-  });
-
   async function fGetDataFromApi() {
     let response = await Promise.resolve(fetch('https://reqres.in/api/unknown'));
     let respJson = await response.json();
@@ -49,11 +43,8 @@ function App() {
     <>
       <div>{!resp ? <div>Загрузка...</div> : resp.time.updated}</div>
       {!data ? <div>Загрузка...</div> : <DropDown label='Цвета'>{data.data.map((item) => item)}</DropDown>}
-
     </>
   )
 }
-/* <DropDown label="unkown">
-      { {data.data} 
-    </DropDown> */
+
 export default App
